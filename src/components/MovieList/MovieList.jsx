@@ -22,17 +22,26 @@ export default function MovieList() {
                 
             } catch {
                 setIsError(true);
-                { isError && <NotFoundPage/>};
             }
           }
           fetchMovieList();
-        }, []);
+    }, []);
+    if (isError) return <NotFoundPage />;
+    if (!moviesList) return <p>Loading...</p>;
 
-    return <div>
+  return <div className={css.listWrapper}>
         {moviesList.length > 0 && <ul className={css.list}>
             {moviesList.map((movie) => (
-                <li key={movie.id}>
-                    <Link to={`/movies/${movie.id}`}>{movie.title} </Link>
+              <li key={movie.id}>
+                <Link className={css.movieLink} to={`/movies/${movie.id}`}>
+                <img className={css.imgPoster}
+                src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                alt={`poster image`}
+                />
+                <div className={css.titleWrapper}>
+                <span className={css.movieTitle}>{movie.title}</span>
+                  </div>
+                  </Link>
                 </li>
             ))}
         </ul>}

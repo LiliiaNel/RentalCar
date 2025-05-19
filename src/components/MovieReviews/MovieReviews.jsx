@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import TMDBAPI from "../../tmdb-api";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
+import css from './MovieReviews.module.css';
 
 export default function MovieReviews() {
     const { movieId } = useParams();
@@ -23,20 +24,18 @@ export default function MovieReviews() {
     if (isError) return <NotFoundPage />;
     if (!reviews) return <p>Loading...</p>;
     
-    return <div>
-        <h2>Reviews</h2>
-        <ul>
+    return <div className={css.reviewsWrapper}>
+        <h2 className={css.title}>Reviews</h2>
+        <ul className={css.reviewsList}>
             {reviews.length >0 && reviews.map(({ id, author_details, content, created_at}) => (
-                <li key={id}>
-                    <p><strong>{author_details.name}</strong></p>
-                    <p>{author_details.username}</p>
-                    <p>{author_details.rating}</p>
-                    <img
-                    src={`https://image.tmdb.org/t/p/w200${author_details.avatar_path}`}
-                    alt={author_details.name}
-                    />
-                    <p>{created_at}</p>   
-                    <p>{content}</p> 
+                <li key={id} className={css.reviewsItem}>
+                    <div className={css.authorDetaisBox}>
+                    <p className={css.authorUsername}>Username: {author_details.username}</p>
+                    <p className={css.authorName}>{author_details.name}</p>
+                    <p className={css.authorRating}>Rating: {author_details.rating}</p>
+                        <p className={css.creationDate}>{created_at}</p> 
+                 </div>    
+                    <p className={css.reviewText}>{content}</p> 
             </li>
             ))}
         </ul>

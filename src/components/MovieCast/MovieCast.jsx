@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import TMDBAPI from "../../tmdb-api";
+import css from './MovieCast.module.css'
 
 
 export default function MovieCast() {
@@ -23,17 +24,17 @@ export default function MovieCast() {
     if (isError) return <NotFoundPage />;
     if (!cast) return <p>Loading...</p>;
     
-    return <div>
-        <h2>The Cast</h2>
-        <ul>
+    return <div className={css.castWrapper}>
+        <h2 className={css.title}>The Cast</h2>
+        <ul className={css.castList}>
             {cast.map(({ id, name, character, profile_path}) => (
-            <li key={id}>
+            <li key={id} className={css.listItem}>
                 <img
                 src={`https://image.tmdb.org/t/p/w200${profile_path}`}
-                alt={name}
+                        alt={`Portrait of ${name}`} className={css.castImg}
                 />
-                <p><strong>{name}</strong></p>
-                <p>as {character}</p>
+                <p className={css.castName}>{name}</p>
+                <p className={css.castCharacter}>as {character}</p>
             </li>
             ))}
         </ul>
