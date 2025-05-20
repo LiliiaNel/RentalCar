@@ -1,18 +1,21 @@
-import { useParams,  NavLink, Outlet } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import TMDBAPI from '../../tmdb-api';
+import { useParams,  NavLink, Link, Outlet, useLocation} from 'react-router-dom';
+import { useEffect, useRef, useState, Suspense } from 'react';
+import { fetchMovie } from '../../services/tmdb-api';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import css from './MovieDetailsPage.module.css';
 
 export default function MovieDetailsPage() {
+    const location = useLocation();
+    const backLink = useRef(location.state);
+
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
     const [isError, setIsError] = useState(false);
     useEffect(() => {
         async function getMovieDetails() {
             try {
-                const response = await TMDBAPI.get(`/movie/${movieId}`);      
-                setMovie(response.data);
+                const data = await fetchMovie(movieId);      
+                setMovie(data);
               } catch {
                   setIsError(true);
               }
@@ -24,7 +27,7 @@ export default function MovieDetailsPage() {
     if (!movie) return <p>Loading...</p>;
 
     return (movie && <div className={css.container} >
-
+        <Link to={backLink.current} className={css.backBtn}>Go back</Link>
         <h1 className={css.title}>{movie.title}</h1>
         <div className={css.movieInfoWrapper}>
         <div className={css.moviePosterBox}>
@@ -35,8 +38,7 @@ export default function MovieDetailsPage() {
         <p className={css.releaseDate}>Release date: {movie.release_date}</p>
         </div>
             <p className={css.overview}>{movie.overview}</p>
-            </div>
-        <button type="button" className={css.backBtn}>Go back</button>
+        </div>
             <ul className={css.linkList}>
                 <li>
                     <NavLink to="cast" className={css.navLink}>Cast</NavLink>
@@ -44,7 +46,9 @@ export default function MovieDetailsPage() {
                 <li>
                     <NavLink to="reviews" className={css.navLink}>Reviews</NavLink>
                 </li>
-            </ul>
-        <Outlet />
+        </ul>
+       <Suspense fallback={<p>Loading page ...</p>}>
+            <Outlet />
+        </Suspense>
     </div>);
 }

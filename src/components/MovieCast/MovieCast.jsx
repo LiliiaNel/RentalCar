@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import TMDBAPI from "../../tmdb-api";
 import css from './MovieCast.module.css'
+import { fetchMovieCast } from "../../services/tmdb-api";
 
 
 export default function MovieCast() {
@@ -12,8 +12,8 @@ export default function MovieCast() {
     useEffect(() => {
         async function getMovieCast() {
         try {
-            const response = await TMDBAPI.get(`/movie/${movieId}/credits`);      
-            setCast(response.data.cast);
+            const data = await fetchMovieCast(movieId);      
+            setCast(data);
           } catch {
               setIsError(true);
           }

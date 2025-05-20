@@ -1,39 +1,19 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import TMDBAPI from "../../tmdb-api";
-import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
+import { Link, useLocation } from "react-router-dom";
 import css from './MovieList.module.css';
 
-export default function MovieList() {
-    const [moviesList, setMoviesList] = useState([]);
-    const [isError, setIsError] = useState(false);
-
-    useEffect(() => {
-        
-        async function fetchMovieList() {
-            try {
-              const response = await TMDBAPI.get("/movie/popular", {
-                params: {
-                  language: "en-US",
-                  page: 1,
-                },
-              });
-                setMoviesList(response.data.results);
-                
-            } catch {
-                setIsError(true);
-            }
-          }
-          fetchMovieList();
-    }, []);
-    if (isError) return <NotFoundPage />;
-    if (!moviesList) return <p>Loading...</p>;
+export default function MovieList({movies}) {
+  const location = useLocation();
+  console.log(movies);
+  
+  if (!movies || movies.length === 0) {
+    return <p className={css.noResults}>No movies found.</p>;
+  }
 
   return <div className={css.listWrapper}>
-        {moviesList.length > 0 && <ul className={css.list}>
-            {moviesList.map((movie) => (
+        {movies.length > 0 && <ul className={css.list}>
+            {movies.map((movie) => (
               <li key={movie.id}>
-                <Link className={css.movieLink} to={`/movies/${movie.id}`}>
+                <Link className={css.movieLink} to={`/movies/${movie.id}`} state={location}>
                 <img className={css.imgPoster}
                 src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                 alt={`poster image`}

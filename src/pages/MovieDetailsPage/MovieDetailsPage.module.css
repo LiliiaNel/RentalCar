@@ -25,6 +25,7 @@
 
 .backBtn {
   display: block;
+  width: 80px;
   background-color: transparent;
   border: 2px solid #cd8e37;
   border-radius: 5px;
@@ -33,6 +34,7 @@
   color: #e3e0dc;
   margin-bottom: 15px;
   transition: background-color 0.3s ease;
+  font-size: 12px;
 }
 .backBtn:hover {
   background-color: #ffaa4d;

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import TMDBAPI from "../../tmdb-api";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import css from './MovieReviews.module.css';
+import { fetchMovieReviews } from "../../services/tmdb-api";
 
 export default function MovieReviews() {
     const { movieId } = useParams();
@@ -12,8 +12,8 @@ export default function MovieReviews() {
     useEffect(() => {
         async function getMovieReviews() {
         try {
-            const response = await TMDBAPI.get(`/movie/${movieId}/reviews`);      
-            setReviews(response.data.results);
+            const results = await fetchMovieReviews(movieId);      
+            setReviews(results);
           } catch {
               setIsError(true);
           }
