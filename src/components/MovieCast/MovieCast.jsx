@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import css from './MovieCast.module.css'
 import { fetchMovieCast } from "../../services/tmdb-api";
+import { defaultImg } from "../../constants/images";
 
 
 export default function MovieCast() {
@@ -30,8 +31,8 @@ export default function MovieCast() {
             {cast.map(({ id, name, character, profile_path}) => (
             <li key={id} className={css.listItem}>
                 <img
-                src={`https://image.tmdb.org/t/p/w200${profile_path}`}
-                        alt={`Portrait of ${name}`} className={css.castImg}
+                src={profile_path ? `https://image.tmdb.org/t/p/w200${profile_path}` : defaultImg}
+                alt="profile" className={css.castImg}
                 />
                 <p className={css.castName}>{name}</p>
                 <p className={css.castCharacter}>as {character}</p>

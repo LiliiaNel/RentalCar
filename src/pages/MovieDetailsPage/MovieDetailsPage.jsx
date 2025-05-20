@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, Suspense } from 'react';
 import { fetchMovie } from '../../services/tmdb-api';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import css from './MovieDetailsPage.module.css';
+import { defaultImg } from "../../constants/images";
 
 export default function MovieDetailsPage() {
     const location = useLocation();
@@ -11,7 +12,9 @@ export default function MovieDetailsPage() {
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
     const [isError, setIsError] = useState(false);
+    
     useEffect(() => {
+        if (!movieId) return;
         async function getMovieDetails() {
             try {
                 const data = await fetchMovie(movieId);      
@@ -32,8 +35,8 @@ export default function MovieDetailsPage() {
         <div className={css.movieInfoWrapper}>
         <div className={css.moviePosterBox}>
         <img className={css.imgPoster}
-             src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-             alt={`poster image`}
+            src={movie.poster_path ? `https://image.tmdb.org/t/p/w200${movie.poster_path}` : defaultImg}
+             alt={`poster`}
             />
         <p className={css.releaseDate}>Release date: {movie.release_date}</p>
         </div>

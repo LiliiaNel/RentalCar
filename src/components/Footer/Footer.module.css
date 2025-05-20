@@ -1,8 +1,8 @@
 .footer {
   position: relative;
-  background-color: rgba(255, 179, 71, 0.05);
-  border-top: 2px solid #ffb347;
-  box-shadow: 0 0 0 1px rgba(255, 179, 71, 0.4);
+  background: linear-gradient(to right, #2e3c51, #111827);
+  border-top: 1px solid #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   padding: 1.5rem 2rem;
   text-align: center;
   font-size: 0.9rem;
@@ -10,10 +10,16 @@
   margin-top: 2rem;
 }
 
-.credit {
-  margin: 0;
-  font-weight: 500;
-  font-size: 0.95rem;
+.socialsWrapper {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.text {
+  flex: 1;
+  text-align: center;
 }
 
 .scrollTopBtn {

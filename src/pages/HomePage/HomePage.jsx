@@ -25,6 +25,7 @@ export default function HomePage() {
     if (!moviesList) return <p>Loading...</p>;
 
     return <div className={css.container}>
+        <h1 className={css.title}>Trending today</h1>
         <MovieList movies={moviesList} />
     </div>
 }

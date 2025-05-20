@@ -30,11 +30,11 @@ export default function MovieReviews() {
             {reviews.length >0 && reviews.map(({ id, author_details, content, created_at}) => (
                 <li key={id} className={css.reviewsItem}>
                     <div className={css.authorDetaisBox}>
-                    <p className={css.authorUsername}>Username: {author_details.username}</p>
-                    <p className={css.authorName}>{author_details.name}</p>
-                    <p className={css.authorRating}>Rating: {author_details.rating}</p>
+                        <p className={css.authorUsername}>Author: {author_details.username}</p>
+                        <p className={css.authorName}>{author_details.name}</p>
+                        <p className={css.authorRating}>Rating: {author_details.rating}</p>
                         <p className={css.creationDate}>{created_at}</p> 
-                 </div>    
+                    </div>    
                     <p className={css.reviewText}>{content}</p> 
             </li>
             ))}
