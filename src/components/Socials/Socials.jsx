@@ -2,7 +2,7 @@ import css from './Socials.module.css'
 import { FaFacebook, FaTelegram, FaInstagram } from 'react-icons/fa';
 
 export default function Socials() {
-    return <div className={css.wrapper}>
+    return <>
     <ul className={css.socialList}>
     <li>
       <a href="https://www.facebook.com/" target="_blank">
@@ -20,5 +20,5 @@ export default function Socials() {
       </a>
     </li>
         </ul>
-        </div>
+        </>
 }

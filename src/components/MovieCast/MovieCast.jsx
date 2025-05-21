@@ -10,7 +10,6 @@ import Loader from '../Loader/Loader';
 export default function MovieCast() {
     const { movieId } = useParams();
     const [cast, setCast] = useState([]);
-    console.log(cast);
     const [isError, setIsError] = useState(false);
     const [loader, setLoader] = useState(false);
 

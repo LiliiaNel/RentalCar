@@ -12,7 +12,7 @@ import { fetchSearchedMovies } from '../../services/tmdb-api';
 export default function MoviesPage() {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
-  const [debouncedQuery] = useDebounce(query, 400);
+  const [debouncedQuery] = useDebounce(query, 500);
 
   const [movies, setMovies] = useState([]);
   const [isError, setIsError] = useState(false);
@@ -43,11 +43,11 @@ export default function MoviesPage() {
 
   const noResults = !loader && !isError && movies.length === 0 && query;
 
-  return <div className={css.container}>
-          {loader && <Loader />}
-          <SearchForm />
-          {movies.length > 0 && <MovieList movies={movies} />}
-          {isError && <NotFoundPage />}
-          {noResults && <p className={css.noResults}>No results found for "{query}"</p>}
-       </div>
+  return <div className={css.container}>       
+    <SearchForm />
+    {loader && <Loader />}
+    {movies.length > 0 && <MovieList movies={movies} />}
+    {isError && <NotFoundPage />}
+    {noResults && <p className={css.noResults}>No results found for "{query}"</p>}
+    </div>
  }

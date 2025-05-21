@@ -12,6 +12,8 @@ export default function Header() {
                 <span>Movie Guide</span>
             </Link>
         <Navigation />
-        <Socials />
+        <div className={css.socialsWrapper}>
+            <Socials />
+        </div>
         </header>
 }

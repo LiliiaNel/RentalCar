@@ -9,7 +9,7 @@ export default function MovieItem({ movie, location }) {
       : defaultImg;
   
     return (
-        <Link className={css.movieLink} to={`/movies/${movie.id}`} state={location}>
+        <Link className={css.movieLink} to={`/movies/${movie.id}`} state={{ from: location }} >
           <img
             className={css.imgPoster}
             src={imageUrl}
