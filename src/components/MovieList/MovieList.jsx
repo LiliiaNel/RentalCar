@@ -1,34 +1,19 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import css from './MovieList.module.css';
-import { defaultImg } from "../../constants/images";
+import MovieItem from '../MovieItem/MovieItem';
 
 export default function MovieList({movies}) {
   const location = useLocation();
-  console.log(movies);
   
-  if (!movies || movies.length === 0) {
-    return <p className={css.noResults}>No movies found.</p>;
-  }
 
   return <div className={css.listWrapper}>
-        {movies.length > 0 && <ul className={css.list}>
-            {movies.map((movie) => (
-              <li key={movie.id}>
-                <Link className={css.movieLink} to={`/movies/${movie.id}`} state={location}>
-                <img className={css.imgPoster}
-                src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-                    : defaultImg
-                }
-                width={250}
-                alt={"poster"}
-                />
-                <div className={css.titleWrapper}>
-                <span className={css.movieTitle}>{movie.title}</span>
-                  </div>
-                  </Link>
-                </li>
-            ))}
-        </ul>}
+    <ul className={css.list}>
+      {movies.map((movie) => (
+        <li className={css.listItem} key={movie.id}>
+          <MovieItem movie={movie} location={location} />
+          </li>
+      ))}
+    </ul>
     </div>
     
 }

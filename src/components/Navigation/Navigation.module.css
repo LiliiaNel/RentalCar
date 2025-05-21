@@ -1,7 +1,12 @@
+.wrapper {
+  flex-shrink: 0;
+}
+
 .nav {
   display: flex;
   gap: 32px;
   align-items: center;
+  justify-content: center;
 }
 
 .navLink {

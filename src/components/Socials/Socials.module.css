@@ -1,3 +1,7 @@
+.wrapper {
+  flex-shrink: 0;
+}
+
 .socialList {
   list-style: none;
   display: flex;

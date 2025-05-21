@@ -5,7 +5,7 @@ import css from './Navigation.module.css'
 export default function Navigation() {
   const buildLinkClass = ({ isActive }) => clsx(css.navLink, { [css.activeLink]: isActive });
     
-  return <div>
+  return <div className={css.wrapper}>
                 <nav className={css.nav}>
                     <NavLink to="/" className={buildLinkClass}>
                     Home

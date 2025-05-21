@@ -3,41 +3,53 @@ import { useParams } from "react-router-dom";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import css from './MovieReviews.module.css';
 import { fetchMovieReviews } from "../../services/tmdb-api";
+import ReviewsItem from "../ReviewsItem/ReviewsItem";
+import Loader from '../Loader/Loader';
+
 
 export default function MovieReviews() {
     const { movieId } = useParams();
-    const [reviews, setReviews] = useState(null);
+    const [reviews, setReviews] = useState([]);
     const [isError, setIsError] = useState(false);
+    const [loader, setLoader] = useState(false);
+  
 
     useEffect(() => {
         async function getMovieReviews() {
-        try {
+          try {
+            setLoader(true);
             const results = await fetchMovieReviews(movieId);      
             setReviews(results);
           } catch {
               setIsError(true);
-          }
+          } finally {
+            setLoader(false);
+        }
         }
         getMovieReviews();
-    }, [movieId]);
-
-    if (isError) return <NotFoundPage />;
-    if (!reviews) return <p>Loading...</p>;
+    }, [movieId]); 
+  
+  const noReviews = !loader && reviews.length === 0;
+  const hasReviews = !loader && reviews.length > 0;
     
     return <div className={css.reviewsWrapper}>
-        <h2 className={css.title}>Reviews</h2>
+      <h2 className={css.title}>Reviews</h2>
+      {loader && <Loader />}
+      {hasReviews &&(
         <ul className={css.reviewsList}>
-            {reviews.length >0 && reviews.map(({ id, author_details, content, created_at}) => (
-                <li key={id} className={css.reviewsItem}>
-                    <div className={css.authorDetaisBox}>
-                        <p className={css.authorUsername}>Author: {author_details.username}</p>
-                        <p className={css.authorName}>{author_details.name}</p>
-                        <p className={css.authorRating}>Rating: {author_details.rating}</p>
-                        <p className={css.creationDate}>{created_at}</p> 
-                    </div>    
-                    <p className={css.reviewText}>{content}</p> 
+          {reviews.map(({ id, author_details, content, created_at }) => (
+            <li key={id} className={css.reviewsItem}>
+              <ReviewsItem
+                author_details={author_details}
+                content={content}
+                created_at={created_at}
+              />
             </li>
-            ))}
+          ))}
         </ul>
-    </div>
+      ) 
+    }
+      {noReviews && <p className={css.noReviews}>We don't have any reviews for this movie yet.</p>}
+      {isError && <NotFoundPage />}
+  </div>  
 }

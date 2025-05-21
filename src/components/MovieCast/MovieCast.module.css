@@ -34,21 +34,12 @@
   transform: scale(1.05);
 }
 
-.castImg {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.castName {
-  font-weight: bold;
-  color: #ffffff;
-  margin-bottom: 5px;
-}
-
-.castCharacter {
-  font-style: italic;
-  color: #ffb347;
+.noCast {
   font-size: 14px;
+  line-height: 1.4;
+  color: #f4f4f9;
+  text-align: center;
+  flex-grow: 1;
+  padding-right: 4px;
+  margin-bottom: 12px;
 }

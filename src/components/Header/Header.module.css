@@ -8,12 +8,7 @@
   background: linear-gradient(to right, #2e3c51, #111827);
   border-bottom: 1px solid #333;
 }
-.titleWrapper {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  flex-shrink: 0;
-}
+
 .movieIcon {
   width: 38px;
   height: 38px;
@@ -27,5 +22,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-right: auto;
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  align-items: center;
+  flex-shrink: 0;
 }

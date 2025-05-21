@@ -1,4 +1,10 @@
 .container {
   min-height: 80vh;
-  padding: 20px 25px;
+  padding: 50px 25px;
+}
+
+.noResults {
+  margin: 0 auto;
+  color: #e3e0dc;
+  text-align: center;
 }

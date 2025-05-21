@@ -26,7 +26,6 @@ export default function SearchForm() {
                  onChange={changeSearchQuery}
                  placeholder="Type to search..."
                  autoComplete="off" />
-             <button type='submit' className={css.searchBtn}>Search</button>
          </form>
        </div>
  }
