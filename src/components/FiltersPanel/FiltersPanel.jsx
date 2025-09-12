@@ -4,6 +4,7 @@ import { setBrand, setPrice, setMileageFrom, setMileageTo } from "../../redux/fi
 import BrandDropdown from "../BrandsDropdown/BrandsDropdown";
 import PriceDropdown from "../PriceDropdown/PriceDropdown";
 import MileageFilter from "../MileageFilter/MileageFilter";
+import css from './FiltersPanel.module.css'
 
 export default function FiltersPanel() {
   const dispatch = useDispatch();
@@ -15,8 +16,8 @@ export default function FiltersPanel() {
   const handleMileageToChange = (value) => dispatch(setMileageTo(value));
 
   return (
-    <div className="filters-panel">
-      <div className="filters-wrapper">
+    <div className={css.filtersPanel}>
+      <div className={css.filtersWrapper}>
         <BrandDropdown value={brand} onChange={handleBrandChange} />
         <PriceDropdown value={price} onChange={handlePriceChange} />
         <MileageFilter
@@ -26,6 +27,7 @@ export default function FiltersPanel() {
           onChangeTo={handleMileageToChange}
         />
       </div>
+      <button className={css.searchBtn}>Search</button>
     </div>
   );
 }

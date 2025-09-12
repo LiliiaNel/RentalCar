@@ -10,7 +10,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 24px;
+  gap: 32px;
   padding-left: 0;
 }
 
@@ -20,11 +20,11 @@
   cursor: pointer;
 }
 
-.listItem {
+/* .listItem {
   width: 180px;
   box-shadow: 0 0 0 1px rgba(255, 179, 71, 0.4);
   background-color: rgba(255, 179, 71, 0.05);
   color: #f4f4f9;
   transition: background 0.3s;
   border-radius: 10px;
-}
+} */

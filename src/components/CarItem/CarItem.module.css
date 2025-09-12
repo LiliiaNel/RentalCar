@@ -1,41 +1,69 @@
-.imgPoster {
-  display: block;
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-.titleWrapper {
-  width: 100%;
-  padding: 20px 0;
+.carLink {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-weight: 500;
-  font-size: 16px;
-  word-wrap: break-word;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.movieLink {
-  display: block;
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}
-
-.movieTitle {
-  color: #e3e0dc;
-  text-overflow: ellipsis;
+  flex-direction: column;
+  width: 270px;
+  background-color: #fff;
+  border-radius: 12px;
   overflow: hidden;
-  white-space: nowrap;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
 }
 
-.movieTitle:hover {
-  color: #ffb347;
+
+.imgPoster {
+  width: 100%;
+  border-radius: 14px;
+  height: 268px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+  background: linear-gradient(180deg, rgba(18, 20, 23, 0.5) 0%, rgba(18, 20, 23, 0.5) 100%);
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 14px;
+  gap: 4px;
+  flex-grow: 1;
+}
+
+.carBrand {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #222;
+}
+
+.titleWrapper {
+  display: flex;
+align-items: flex-start;
+justify-content: flex-start;
+flex-direction: row;
+gap: 87px;
+}
+
+.carModel {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.carYear {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.carPrice {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #007bff;
+  margin-top: 6px;
+}
+
+.carDetails {
+font-weight: 400;
+font-size: 12px;
+line-height: 1.33333;
+color: #8d929a;
 }

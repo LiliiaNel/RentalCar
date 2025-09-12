@@ -1,5 +1,5 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Manrope", sans-serif;;
   line-height: 1.5;
   font-weight: 400;
 
@@ -27,15 +27,11 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  min-width: 320px;
+  min-width: 320px; 
+  max-width: 1440px;
   min-height: 100vh;
   background: #1f2937;
-  background: linear-gradient(
-    80deg,
-    rgba(31, 41, 55, 1) 0%,
-    rgba(17, 24, 39, 1) 50%,
-    rgb(30, 58, 138) 100%
-  );
+  background: #ffff;
   overflow-x: hidden;
 }
 

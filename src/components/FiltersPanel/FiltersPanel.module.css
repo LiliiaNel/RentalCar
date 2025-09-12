@@ -1,0 +1,34 @@
+.filtersPanel {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.filtersWrapper {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: row;
+gap: 16px;
+width: 752px;
+}
+
+
+.searchBtn {
+border-radius: 12px;
+padding: 12px 51px;
+width: 156px;
+height: 44px;
+background: #3470ff;
+outline: none;
+border: none;
+display: block;
+
+font-weight: 600;
+font-size: 16px;
+line-height: 1.25;
+color: #fff;
+}
+
