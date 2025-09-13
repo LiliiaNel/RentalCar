@@ -14,3 +14,5 @@ export const selectFilteredCars = createSelector(
     });
   }
 );
+
+export const selectAppliedFilters = (state) => state.filters.applied;

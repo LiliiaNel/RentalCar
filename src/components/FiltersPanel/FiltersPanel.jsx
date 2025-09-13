@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { selectFilters } from "../../redux/filters/filtersSelectors";
-import { setBrand, setPrice, setMileageFrom, setMileageTo } from "../../redux/filters/filtersSlice";
+import { setBrand, setPrice, setMileageFrom, setMileageTo, applyFilters } from "../../redux/filters/filtersSlice";
 import BrandDropdown from "../BrandsDropdown/BrandsDropdown";
 import PriceDropdown from "../PriceDropdown/PriceDropdown";
 import MileageFilter from "../MileageFilter/MileageFilter";
@@ -15,6 +15,12 @@ export default function FiltersPanel() {
   const handleMileageFromChange = (value) => dispatch(setMileageFrom(value));
   const handleMileageToChange = (value) => dispatch(setMileageTo(value));
 
+  const handleSearch = () => {
+    dispatch(applyFilters());
+  };
+
+
+
   return (
     <div className={css.filtersPanel}>
       <div className={css.filtersWrapper}>
@@ -27,7 +33,7 @@ export default function FiltersPanel() {
           onChangeTo={handleMileageToChange}
         />
       </div>
-      <button className={css.searchBtn}>Search</button>
+      <button className={css.searchBtn} onClick={handleSearch}>Search</button>
     </div>
   );
 }

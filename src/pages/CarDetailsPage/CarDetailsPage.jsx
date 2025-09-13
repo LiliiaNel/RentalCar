@@ -1,69 +1,62 @@
-// import { useParams,  NavLink, Link, Outlet, useLocation} from 'react-router-dom';
-// import { useEffect, useRef, useState, Suspense } from 'react';
-// import { fetchMovie } from '../../services/api';
-// import NotFoundPage from '../NotFoundPage/NotFoundPage';
-// import css from './CarDetailsPage.module.css';
-// import defaultImg from "../../constants/images";
-// import Loader from '../../components/Loader/Loader';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { selectCarsLoading, selectCarsError, selectSelectedCar } from '../../redux/cars/carsSelectors';
+import { fetchCarById } from "../../redux/cars/carsOperations";
 
-// export default function CarDetailsPage() {
-//     const location = useLocation();
-//     const backLink = useRef(location.state?.from || '/movies');
+import css from './CarDetailsPage.module.css';
+import BookingForm from "../../components/BookingForm/BookingForm";
+import CarInfoSections from "../../components/CarInfoSections/CarInfoSections";
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import Loader from '../../components/Loader/Loader';
+import defaultImg from "../../constants/images";
+import { shortId } from "../../utils/shortId";
+import { formatNumber } from "../../utils/formatNumber";
 
-//     const { movieId } = useParams();
-//     const [movie, setMovie] = useState([]);
-//     const [isError, setIsError] = useState(false);
-//     const [loader, setLoader] = useState(false);
-    
-//     useEffect(() => {
-//         if (!movieId) return;
-//         async function getMovieDetails() {
-//             try {
-//                 setLoader(true);
-//                 const data = await fetchMovie(movieId);      
-//                 setMovie(data);
-//               } catch {
-//                 setIsError(true);
-//               } finally {
-//                 setLoader(false);
-//             }
-//             }
-//             getMovieDetails();
-//     }, [movieId]);
+export default function CarDetailsPage() {
 
-//     const imageUrl = movie.poster_path ? `https://image.tmdb.org/t/p/w200${movie.poster_path}` : defaultImg;
-//     const isMovieReady = !loader && !isError && movie;
+    const { id } = useParams();
+    const dispatch = useDispatch();
+    const car = useSelector(selectSelectedCar);
+    const loader = useSelector(selectCarsLoading);
+    const isError = useSelector(selectCarsError);
+
+    useEffect(() => {
+        if (id) {
+            dispatch(fetchCarById(id));
+        }
+    }, [dispatch, id]);
 
 
-//     return (
-//         <div className={css.container} >
-//             {loader && <Loader />}
-//             {isError && <NotFoundPage />}
-//             {isMovieReady &&
-//                 <>
-//                  <Link to={backLink.current} className={css.backBtn}>Go back</Link>
-//                 <h1 className={css.title}>{movie.title}</h1>
-//                 <div className={css.movieInfoWrapper}>
-//                  <div className={css.moviePosterBox}>
-//                     <img className={css.imgPoster}
-//                     src={imageUrl}
-//                     alt={`poster`}
-//                     />
-//                     <p className={css.releaseDate}>Release date: {movie.release_date}</p>
-//                  </div>
-//                     <p className={css.overview}>{movie.overview}</p>
-//                 </div>
-//                 <ul className={css.linkList}>
-//                     <li>
-//                         <NavLink to="cast" className={css.navLink}>Cast</NavLink>
-//                     </li>
-//                     <li>
-//                         <NavLink to="reviews" className={css.navLink}>Reviews</NavLink>
-//                     </li>
-//                  </ul>
-//                 <Suspense fallback={<p>Loading page ...</p>}>
-//                     <Outlet />
-//                 </Suspense>
-//             </>}
-//     </div>);
-// }
+    const imageUrl = car?.img || defaultImg;
+    const isCarReady = !loader && !isError && car;
+
+    return (
+        <div className={css.container}>
+            {loader && <Loader />}
+            {isError && <NotFoundPage />}
+            {isCarReady && (<>
+                <div className={css.imgFormCover}>
+                        <img src={imageUrl} alt={`${car.brand} ${car.model}`} className={css.carImage} />
+                        <BookingForm/>
+                </div>
+                <div className={css.detailsCover}>
+                    <div className={css.details}>
+                        <div className={css.textWrapper}>
+                            <h2>{car.brand} {car.model}, {car.year}</h2> 
+                            <span className={css.carID}>Id: {shortId(car.id)}</span> 
+                        </div>
+                        <div className={css.textWrapper}>
+                            <p className={css.addressText}>{car.address}</p>
+                            <p>Mileage: {formatNumber(car.mileage)}km</p>
+                        </div>
+                        <span className={css.price}>${car.rentalPrice}</span>
+                        <p>{car.description}</p>
+                    </div>
+                    <CarInfoSections car={car} />
+                </div>
+                  
+            </>)}
+        </div>
+    );
+}

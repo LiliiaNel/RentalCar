@@ -1,0 +1,39 @@
+.infoSections {
+  display: flex;
+align-items: flex-start;
+justify-content: flex-start;
+flex-direction: column;
+gap: 32px;
+text-align: left;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section h3 {
+font-weight: 600;
+font-size: 20px;
+line-height: 1.2;
+color: #101828;
+margin-bottom: 20px;
+}
+
+.section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.section ul li {
+  margin-bottom: 16px;
+  font-weight: 500;
+font-size: 16px;
+line-height: 1.25;
+color: #101828;
+}
+/* 
+.section ul li::before {
+
+  left: 0;
+  font-weight: bold;
+} */

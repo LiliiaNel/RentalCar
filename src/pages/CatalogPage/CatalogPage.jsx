@@ -6,19 +6,22 @@ import Loader from '../../components/Loader/Loader';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars } from '../../redux/cars/carsOperations';
-import { selectFilteredCars } from '../../redux/filters/filtersSelectors';
-import { selectCarsLoading, selectCarsError } from '../../redux/cars/carsSelectors';
+import { selectFilteredCars, selectAppliedFilters } from '../../redux/filters/filtersSelectors';
+import { selectCarsLoading, selectCarsError, selectCars } from '../../redux/cars/carsSelectors';
+
 
 
 export default function CatalogPage() {
   const dispatch = useDispatch();
-const cars = useSelector(selectFilteredCars);
-const isLoading = useSelector(selectCarsLoading);
-const isError = useSelector(selectCarsError);
+  const cars = useSelector(selectCars);
+  const isLoading = useSelector(selectCarsLoading);
+  const isError = useSelector(selectCarsError);
+  const appliedFilters = useSelector(selectAppliedFilters);
 
   useEffect(() => {
-    dispatch(fetchCars());
-  }, [dispatch]);
+    dispatch(fetchCars(appliedFilters || {}));
+  }, [dispatch, appliedFilters]);
+
 
   const noResults = !isLoading && !isError && cars.length === 0;
 

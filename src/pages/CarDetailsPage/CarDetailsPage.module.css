@@ -1,82 +1,85 @@
 .container {
-  color: #e3e0dc;
-  padding: 20px 30px;
-  box-shadow: 0 0 0 1px rgba(255, 179, 71, 0.4);
-  background-color: rgba(255, 179, 71, 0.05);
-  width: 70%;
-  margin: 30px auto;
-  border-radius: 8px;
-}
-
-.movieInfoWrapper {
-  display: flex;
-  gap: 30px;
-  margin-bottom: 20px;
+  margin: 0 auto;
+  padding: 20px;
   text-align: left;
-}
-
-.moviePosterBox {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding-top: 84px;
+  padding-left: 120px;
+  padding-right: 120px;
+  padding-bottom: 104px;
 }
 
-.backBtn {
+
+.detailsCover  {
+}
+
+.imgFormCover {
+margin-right: 72px;
+}
+
+.carImage {
+  width: 640px;
+  height: 512px;
+  max-width: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+  margin-bottom: 40px;
+}
+
+.details {
+margin-bottom: 68px;
+
+}
+
+.textWrapper {
+display: flex;
+flex-direction: row;
+align-items: baseline;
+}
+
+.textWrapper:first-of-type {
+  margin-bottom: 8px;
+}
+
+.textWrapper:last-of-type {
+  margin-bottom: 16px;
+}
+
+
+.details h2 {
+  font-weight: 600;
+font-size: 24px;
+line-height: 1.33333;
+text-align: center;
+color: #101828;
+margin-right: 16px;
+margin-bottom: 8px;
+}
+
+.carID{
+  font-weight: 500;
+font-size: 16px;
+line-height: 1.25;
+color: #8d929a;
+}
+
+.details p {
+font-weight: 500;
+font-size: 16px;
+line-height: 1.25;
+color: #101828;
+
+}
+
+.addressText {
+margin-right: 16px;
+}
+
+.price {
   display: block;
-  width: 80px;
-  background-color: transparent;
-  border: 2px solid #cd8e37;
-  border-radius: 5px;
-  padding: 8px 16px;
-  cursor: pointer;
-  color: #e3e0dc;
-  margin-bottom: 15px;
-  transition: background-color 0.3s ease;
-  font-size: 12px;
-}
-.backBtn:hover {
-  background-color: #ffaa4d;
-}
-
-.imgPoster {
-  width: 200px;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(255, 179, 71, 0.3);
-  display: block;
-  margin-bottom: 12px;
-}
-
-.overview {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 15px;
-}
-
-.releaseDate {
-  font-style: italic;
-  margin-bottom: 20px;
-}
-
-.linkList {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  padding-left: 0;
-  margin-bottom: 20px;
-}
-
-.navLink {
-  color: #ffb347;
-  text-decoration: none;
-  padding: 6px 12px;
-  border-top: 2px solid transparent;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s ease, background-color 0.3s ease;
-  border-radius: 4px;
-}
-
-.navLinkActive {
-  border-bottom-color: #ffb347;
-  background-color: rgba(255, 179, 71, 0.2);
+font-weight: 600;
+font-size: 24px;
+line-height: 1.33333;
+color: #3470ff;
+margin-bottom: 32px;
 }
