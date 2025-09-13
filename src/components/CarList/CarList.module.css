@@ -15,16 +15,5 @@
 }
 
 .listItem:hover {
-  background-color: rgba(255, 179, 71, 0.15);
   transform: scale(1.05);
-  cursor: pointer;
 }
-
-/* .listItem {
-  width: 180px;
-  box-shadow: 0 0 0 1px rgba(255, 179, 71, 0.4);
-  background-color: rgba(255, 179, 71, 0.05);
-  color: #f4f4f9;
-  transition: background 0.3s;
-  border-radius: 10px;
-} */

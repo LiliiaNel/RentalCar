@@ -6,7 +6,7 @@ import Loader from '../../components/Loader/Loader';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars } from '../../redux/cars/carsOperations';
-import { selectFilteredCars, selectAppliedFilters } from '../../redux/filters/filtersSelectors';
+import { selectAppliedFilters } from '../../redux/filters/filtersSelectors';
 import { selectCarsLoading, selectCarsError, selectCars } from '../../redux/cars/carsSelectors';
 
 

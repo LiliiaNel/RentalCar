@@ -12,6 +12,7 @@ import Loader from '../../components/Loader/Loader';
 import defaultImg from "../../constants/images";
 import { shortId } from "../../utils/shortId";
 import { formatNumber } from "../../utils/formatNumber";
+import Icon from '../../components/Icon/Icon'
 
 export default function CarDetailsPage() {
 
@@ -47,7 +48,7 @@ export default function CarDetailsPage() {
                             <span className={css.carID}>Id: {shortId(car.id)}</span> 
                         </div>
                         <div className={css.textWrapper}>
-                            <p className={css.addressText}>{car.address}</p>
+                            <p className={css.addressText}><Icon name="icon-Location" className={css.icon} width={16} height={16} /> {car.address}</p>
                             <p>Mileage: {formatNumber(car.mileage)}km</p>
                         </div>
                         <span className={css.price}>${car.rentalPrice}</span>
