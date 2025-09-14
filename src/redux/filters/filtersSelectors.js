@@ -7,9 +7,9 @@ export const selectFilteredCars = createSelector(
   (cars, filters) => {
     return cars.filter(car => {
       const matchBrand = filters.brand ? car.brand === filters.brand : true;
-      const matchPrice = filters.price ? car.rentalPrice === filters.price : true;
-      const matchMileageFrom = filters.mileageFrom ? car.mileage >= filters.mileageFrom : true;
-      const matchMileageTo = filters.mileageTo ? car.mileage <= filters.mileageTo : true;
+      const matchPrice = filters.rentalPrice ? car.rentalPrice === filters.rentalPrice : true;
+      const matchMileageFrom = filters.minMileage ? car.mileage >= filters.minMileage : true;
+      const matchMileageTo = filters.maxMileage ? car.mileage <= filters.maxMileage : true;
       return matchBrand && matchPrice && matchMileageFrom && matchMileageTo;
     });
   }

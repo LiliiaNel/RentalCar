@@ -6,11 +6,12 @@ export const fetchCars = createAsyncThunk(
   async (filters, thunkAPI) => {
     try {
       const params = {};
+      
       if (filters.brand) params.brand = filters.brand;
-      if (filters.price) params.price = filters.price;
-      if (filters.mileageFrom) params.mileageFrom = filters.mileageFrom;
-      if (filters.mileageTo) params.mileageTo = filters.mileageTo;
-
+      if (filters.rentalPrice) params.rentalPrice = filters.rentalPrice;
+      if (filters.minMileage) params.minMileage = filters.minMileage;
+      if (filters.maxMileage) params.maxMileage = filters.maxMileage;
+      
       const { data } = await axios.get("https://car-rental-api.goit.global/cars", { params });
 
       return data.cars;
