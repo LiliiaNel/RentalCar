@@ -1,12 +1,13 @@
 .container {
   margin: 0 auto;
-  padding: 20px;
   text-align: left;
   display: flex;
+  justify-content: center;
   padding-top: 84px;
   padding-left: 120px;
   padding-right: 120px;
   padding-bottom: 104px;
+  
 }
 
 

@@ -30,11 +30,7 @@
     border: none;
     padding: 0;
     cursor: pointer;
-}
-
-.favButton .favActive {
-    fill:  #3470ff;
-    transition: fill 0.3s ease;
+    
 }
 
 .description {

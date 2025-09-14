@@ -4,7 +4,6 @@ border: 1px solid #dadde1;
 border-radius: 10px;
 padding: 32px;
 width: 640px;
-height: 488px;
 }
 
 .bookingForm h3 {
@@ -46,6 +45,15 @@ background: #f7f7f7;
 font-weight: 500;
 font-size: 16px;
 line-height: 1.25;
+color: #101828;
+}
+
+
+.bookingForm input::placeholder,
+.bookingForm textarea::placeholder {
+font-weight: 500;
+font-size: 16px;
+line-height: 1.25;
 color: #8d929a;
 }
 
@@ -71,4 +79,11 @@ height: 44px;
 
 .submitButton:hover {
   background: #3470ff;;
+}
+
+.error {
+  color: #8d929a;;   
+  font-size: 14px;    
+  margin-top: 4px; 
+  font-weight: 500;
 }

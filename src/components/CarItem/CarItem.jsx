@@ -3,14 +3,13 @@ import css from './CarItem.module.css';
 import defaultImg from '../../constants/images';
 import { useNavigate } from "react-router-dom";
 import Icon from "../Icon/Icon";
-// import { toggleFavorite } from "../../redux/cars/carsSlice";
-// import { selectFavorites } from "../../redux/favorites/favoritesSelectors";
+import { toggleFavorite, selectFavorites } from "../../redux/favorites/favoritesSlice";
 
 export default function CarItem({ car }) {
     const navigate = useNavigate();
-    // const dispatch = useDispatch();
-    // const favorites = useSelector(selectFavorites);
-    // const isFav = favorites.includes(car.id);
+    const dispatch = useDispatch();
+    const favorites = useSelector(selectFavorites);
+    const isFavourite = favorites.includes(car.id);
 
     const handleClick = () => {
         navigate(`/catalog/${car.id}`);
@@ -18,7 +17,7 @@ export default function CarItem({ car }) {
 
     const handleFavoriteClick = (e) => {
         e.stopPropagation();
-        // dispatch(toggleFavorite(car.id));
+        dispatch(toggleFavorite(car.id));
     };
 
     const fullAddress = car.address;
@@ -39,13 +38,12 @@ export default function CarItem({ car }) {
                     type="button"
                     className={css.favButton}
                     onClick={handleFavoriteClick}
-                    aria-label="Add to favorites"
+                    aria-label={isFavourite ? "Remove from favorites" : "Add to favorites"}
                 >
                     <Icon
-                        name="icon-heart"
+                        name={isFavourite ? "icon-heart-filled" : "icon-heart"}
                         width={16}
                         height={16}
-                        // className={isFav ? css.favActive : ""}
                     />
                 </button>
             </div>

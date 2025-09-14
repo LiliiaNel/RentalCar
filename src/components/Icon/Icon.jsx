@@ -1,10 +1,6 @@
-const defaultSizes = {
-  check: { width: 24, height: 24 },
-  user: { width: 40, height: 40 },
-};
 
 const Icon = ({ name, width, height }) => {
-  const size = defaultSizes[name] || { width: 24, height: 24 };
+  const size = { width: 24, height: 24 };
   
   return (
     <svg

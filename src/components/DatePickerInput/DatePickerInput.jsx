@@ -53,17 +53,23 @@ export default function DatePicker({ name, placeholder }) {
             selected={selected}
             onSelect={handleSelect}
             navLayout="around"
+            showOutsideDays
             classNames={{
               root: css.calendar,
+              nav: css.nav,
               caption: css.caption,
-              month_caption: css.caption,
+              caption_label: css.captionLabel,
+              nav_button: css.navButton,
+              chevron: css.myChevron,
+              button_previous: css.prevBtn, 
+              button_next: css.nextBtn,
+              weekdays: css.weekdaysRow,
               weekday: css.weekday,
-              head_cell: css.weekday,
-              weeknumber: css.weekNumber,
-              day: css.dayCell,   
+              day: css.dayCell,
               day_button: css.dayButton,
               selected: css.selected,
-              today: css.today
+              today: css.today,
+              outside: css.outside,
             }}
           />
         </div>
