@@ -23,9 +23,6 @@ padding: 12px 51px;
 width: 156px;
 height: 44px;
 background: #3470ff;
-outline: none;
-border: none;
-display: block;
 
 font-weight: 600;
 font-size: 16px;
@@ -33,3 +30,6 @@ line-height: 1.25;
 color: #fff;
 }
 
+.searchBtn:hover {
+  background: #0B44CD;
+}

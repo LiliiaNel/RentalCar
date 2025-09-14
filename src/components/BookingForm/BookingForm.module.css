@@ -64,16 +64,13 @@ color: #8d929a;
 }
 
 .submitButton {
-background: #3470ff;
+  background: #3470ff;
   color: #fff;
-  border: none;
   border-radius: 12px;
-padding: 12px 51px;
-width: 156px;
-height: 44px;
-  cursor: pointer;
+  padding: 12px 51px;
+  width: 156px;
+  height: 44px;
   transition: background-color 0.2s ease;
-  display: block;
   margin: 0 auto;
 }
 

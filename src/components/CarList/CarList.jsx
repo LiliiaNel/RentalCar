@@ -1,10 +1,8 @@
-import { useLocation } from "react-router-dom";
 import css from './CarList.module.css';
 import CarItem from '../CarItem/CarItem';
 
 export default function CarList({cars}) {
-  const location = useLocation();
-  
+
 
   return <div className={css.listWrapper}>
     <ul className={css.list}>

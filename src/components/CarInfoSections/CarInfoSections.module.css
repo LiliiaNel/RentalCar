@@ -34,9 +34,3 @@ display: flex;
 gap: 8px;
 justify-content: flex-start;
 }
-/* 
-.section ul li::before {
-
-  left: 0;
-  font-weight: bold;
-} */
