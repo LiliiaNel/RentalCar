@@ -1,6 +1,7 @@
 # 🚗 Car Rental App
 
-A web application for browsing, filtering, and booking cars. Built with React, Redux Toolkit, Formik, and Axios.
+A demo web application for browsing, filtering, and booking cars.
+This project is an imitation created for educational purposes and is not a real car rental service.
 
 ## ✨ Features
 
