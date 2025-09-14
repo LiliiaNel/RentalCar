@@ -1,6 +1,8 @@
 import { Formik, Form, Field } from "formik";
 import css from './BookingForm.module.css';
 import { userSchema } from '../../validation/userSchema'
+import DatePickerInput from '../DatePickerInput/DatePickerInput';
+
 
 export default function BookingForm() {
   const initialValues = {
@@ -18,7 +20,7 @@ export default function BookingForm() {
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={userSchema}>
-      {() => (
+      {( ) => (
         <Form className={css.bookingForm}>
           <h3>Book your car now</h3>
           <p>Stay connected! We are always ready to help you.</p>
@@ -37,12 +39,8 @@ export default function BookingForm() {
             required
             className={css.inputField}
           />
-          <Field
-            type="date"
-            name="date"
-            placeholder="Booking date"
-            className={css.inputField}
-          />
+          <DatePickerInput name="date" placeholder="Booking date" className={css.inputField} />
+          
           <Field
             as="textarea"
             name="comment"

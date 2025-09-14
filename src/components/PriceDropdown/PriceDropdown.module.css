@@ -1,6 +1,7 @@
 .wrapper { 
     position: relative; 
     width: 204px; 
+    text-align: left;
 }
 
 .label { 
@@ -120,13 +121,11 @@
     outline: none; 
 }
 
-/* selected value in list */
 .option.selected {
     color: #101828;
     font-weight: 500;
 }
 
-/* custom scrollbar */
 .items::-webkit-scrollbar { 
     width: 8px; 
 }
@@ -145,7 +144,6 @@
     scrollbar-color: #dadde1 transparent; 
 }
 
-/* remove outlines for buttons */
 .option,
 .chevronButton {
     outline: none;

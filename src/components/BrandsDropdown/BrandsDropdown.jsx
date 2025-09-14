@@ -16,7 +16,9 @@ export default function BrandDropdown({ value, onChange }) {
         {({ open }) => (
           <>
             <div className={css.menuField}>
-              <span className={css.selectedText}> {value ? `${value}` : "Choose a brand"}</span>
+              <span className={css.selectedText}>
+                {value ? value : "Choose a brand"}
+              </span>
 
               <Menu.Button
                 className={css.chevronButton}
@@ -44,14 +46,28 @@ export default function BrandDropdown({ value, onChange }) {
               leaveTo={css.leaveTo}
             >
               <Menu.Items className={css.items}>
+                <Menu.Item as="div">
+                  {({ active }) => (
+                    <button
+                      type="button"
+                      className={`${css.option} ${
+                        value === "" ? css.selected : ""
+                      } ${active ? css.active : ""}`}
+                      onClick={() => onChange("")}
+                    >
+                      Choose a brand
+                    </button>
+                  )}
+                </Menu.Item>
+                
                 {brands.map((brand) => (
                   <Menu.Item key={brand} as="div">
                     {({ active }) => (
                       <button
                         type="button"
-                        className={`${css.option} ${active ? css.active : ""} ${
+                        className={`${css.option} ${
                           value === brand ? css.selected : ""
-                        }`}
+                        } ${active ? css.active : ""}`}
                         onClick={() => onChange(brand)}
                       >
                         {brand}

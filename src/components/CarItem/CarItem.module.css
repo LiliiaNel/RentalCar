@@ -29,6 +29,7 @@
     background: transparent;
     border: none;
     padding: 0;
+    cursor: pointer;
 }
 
 .favButton .favActive {
@@ -39,43 +40,52 @@
 .description {
   display: flex;
   flex-direction: column;
-  padding: 12px 14px;
   gap: 4px;
   flex-grow: 1;
+  margin-bottom: 28px;
 }
 
-.carBrand {
-  font-weight: 600;
-  font-size: 1rem;
-  color: #222;
-}
+
 
 .titleWrapper {
   display: flex;
 align-items: flex-start;
 justify-content: flex-start;
 flex-direction: row;
-gap: 87px;
+margin-bottom: 8px;
 }
 .carInfo {
-  
+font-weight: 500;
+font-size: 16px;
+line-height: 1.25;
+margin-right: auto;
 }
+
+.carBrand {
+font-weight: 500;
+font-size: 16px;
+line-height: 1.25;
+color: #101828;
+}
+
 .carModel {
-  font-weight: 500;
-  font-size: 0.95rem;
-  color: #444;
+color: #3470ff;
 }
 
 .carYear {
-  font-size: 0.9rem;
-  color: #666;
+  color: #101828;
 }
 
 .carPrice {
-  font-weight: 700;
-  font-size: 1rem;
-  color: #007bff;
-  margin-top: 6px;
+font-weight: 500;
+font-size: 16px;
+line-height: 1.25;
+color: #101828;
+}
+
+.textCover {
+  display: flex;
+  gap: 3px;
 }
 
 .carDetails {
@@ -99,4 +109,9 @@ font-weight: 500;
 font-size: 16px;
 line-height: 1.25;
 color: #fff;
+cursor: pointer;
+}
+
+.readMoreBtn:hover {
+  background: #0b44cd;
 }

@@ -10,10 +10,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 32px;
+  column-gap: 32px;
+  row-gap: 48px;
   padding-left: 0;
-}
-
-.listItem:hover {
-  transform: scale(1.05);
+  margin: 0;
 }

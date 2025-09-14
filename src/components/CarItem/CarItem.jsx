@@ -21,6 +21,11 @@ export default function CarItem({ car }) {
         // dispatch(toggleFavorite(car.id));
     };
 
+    const fullAddress = car.address;
+    const addressParts = fullAddress.split(',').map(part => part.trim());
+    const cityAndCountry = addressParts.slice(-2).join(' | ');
+
+
     return (
         <div className={css.cardBox}>
             <div className={css.imgWrapper}>
@@ -48,15 +53,20 @@ export default function CarItem({ car }) {
             <div className={css.description}>
                 <div className={css.titleWrapper}>
                     <div className={css.carInfo}>
-                    <span className={css.carBrand}>{car.brand}</span>
-                    <span className={css.carModel}>{car.model},</span>
-                    <span className={css.carYear}>{car.year}</span>
+                        <span className={css.carBrand}>{car.brand} </span>
+                        <span className={css.carModel}>{car.model}, </span>
+                        <span className={css.carYear}>{car.year}</span>
                     </div>
                     <span className={css.carPrice}>${car.rentalPrice}</span>
                 </div>
-                <span className={css.carDetails}>{car.rentalCompany}</span>
-                <span className={css.carDetails}>{car.address}</span>
-                <span className={css.carDetails}>{car.mileage} km</span>
+                <div className={css.textCover}>
+                    <span className={css.carDetails}>{cityAndCountry} |</span>
+                    <span className={css.carDetails}>{car.rentalCompany} |</span>
+                </div>
+                <div className={css.textCover}>
+                    <span className={css.carDetails}>{car.type} | </span>
+                    <span className={css.carDetails}>{car.mileage} km</span>
+                </div>
             </div>
 
             <button type="button" className={css.readMoreBtn} onClick={handleClick}>
