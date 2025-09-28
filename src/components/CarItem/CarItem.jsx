@@ -51,8 +51,8 @@ export default function CarItem({ car }) {
             <div className={css.description}>
                 <div className={css.titleWrapper}>
                     <div className={css.carInfo}>
-                        <span className={css.carBrand}>{car.brand} </span>
-                        <span className={css.carModel}>{car.model}, </span>
+                        <h3 className={css.carBrand}>{car.brand} </h3>
+                        <h3 className={css.carModel}>{car.model}, </h3>
                         <span className={css.carYear}>{car.year}</span>
                     </div>
                     <span className={css.carPrice}>${car.rentalPrice}</span>

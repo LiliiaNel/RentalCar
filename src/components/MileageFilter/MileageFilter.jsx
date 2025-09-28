@@ -15,7 +15,7 @@ export default function MileageFilter({ valueFrom, valueTo, onChangeFrom, onChan
   return (
     <div>
       <label className={css.label}>
-        Сar mileage / km
+        Car mileage / km
         <div className={css.wrapper}>
           <div className={css.inputWrapper}>
             <span className={css.prefix}>From</span>

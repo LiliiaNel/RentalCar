@@ -51,7 +51,7 @@ export default function BookingForm() {
               </div>
 
               <div className={css.inputGroup}>
-                <DatePickerInput name="date" placeholder="Booking date*" className={css.inputField} />
+                <DatePickerInput name="date" placeholder="Booking date" className={css.inputField} />
                 <ErrorMessage name="date" component="div" className={css.error} />
               </div>
 
