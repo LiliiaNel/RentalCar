@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const fetchCars = createAsyncThunk(
   "cars/fetchCars",
-  async (filters={}, thunkAPI) => {
+  async (filters, thunkAPI) => {
     try {
       const params = {limit: 10, ...filters };
 
@@ -15,7 +15,6 @@ export const fetchCars = createAsyncThunk(
       if (filters.maxMileage) params.maxMileage = filters.maxMileage;
       
       const { data } = await axios.get("https://car-rental-api.goit.global/cars", { params });
-      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

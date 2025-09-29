@@ -3,13 +3,19 @@ import css from './MileageFilter.module.css'
 
 export default function MileageFilter({ valueFrom, valueTo, onChangeFrom, onChangeTo }) {
 
-  const formatNumber = (num) => {
-    if (!num) return "";
-    return new Intl.NumberFormat("en-US").format(num);
+  const formatNumber = (num) =>
+    num !== "" && !isNaN(num)
+      ? new Intl.NumberFormat("en-US").format(Number(num))
+      : "";
+
+  const parseNumber = (str) => {
+    const numeric = str.replace(/[^\d]/g, ""); 
+    return numeric === "" ? "" : Number(numeric);
   };
 
-  const parseNumber = (str) => str.replace(/,/g, "");
-
+  const handleChange = (e, onChange) => {
+    onChange(parseNumber(e.target.value));
+  };
 
 
   return (
@@ -23,7 +29,7 @@ export default function MileageFilter({ valueFrom, valueTo, onChangeFrom, onChan
               type="text"
               inputMode="numeric"
               value={formatNumber(valueFrom)}
-              onChange={(e) => onChangeFrom(parseNumber(e.target.value))}
+              onChange={(e) => handleChange(e, onChangeFrom)}
               className={clsx(css.inputFrom, css.input)}
             />
           </div>
@@ -34,7 +40,7 @@ export default function MileageFilter({ valueFrom, valueTo, onChangeFrom, onChan
               type="text"
               inputMode="numeric"
               value={formatNumber(valueTo)}
-              onChange={(e) => onChangeTo(parseNumber(e.target.value))}
+              onChange={(e) => handleChange(e, onChangeTo)}
               className={clsx(css.inputTo, css.input)}
             />
           </div>

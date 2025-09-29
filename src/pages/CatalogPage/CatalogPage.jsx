@@ -27,11 +27,11 @@ export default function CatalogPage() {
     dispatch(fetchCars({ ...(appliedFilters|| {}), page: currentPage + 1 }));
   };
 
+  
     useEffect(() => {
-    if (cars.length === 0) {
-      dispatch(fetchCars({ ...(appliedFilters || {}), page: 1 }));
-    }
-  }, [dispatch, appliedFilters, cars.length]);
+    dispatch(fetchCars({ ...(appliedFilters || {}), page: 1 }));
+  }, [dispatch, appliedFilters]);
+
 
   const listEndRef = useRef(null);
 
