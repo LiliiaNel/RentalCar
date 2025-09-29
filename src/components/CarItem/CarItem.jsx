@@ -4,6 +4,8 @@ import defaultImg from '../../constants/images';
 import { useNavigate } from "react-router-dom";
 import Icon from "../Icon/Icon";
 import { toggleFavorite, selectFavorites } from "../../redux/favorites/favoritesSlice";
+import { formatNumber } from "../../utils/formatNumber";
+import clsx from "clsx";
 
 export default function CarItem({ car }) {
     const navigate = useNavigate();
@@ -22,7 +24,8 @@ export default function CarItem({ car }) {
 
     const fullAddress = car.address;
     const addressParts = fullAddress.split(',').map(part => part.trim());
-    const cityAndCountry = addressParts.slice(-2).join(' | ');
+    const [city, country] = addressParts.slice(-2);
+
 
 
     return (
@@ -51,19 +54,20 @@ export default function CarItem({ car }) {
             <div className={css.description}>
                 <div className={css.titleWrapper}>
                     <div className={css.carInfo}>
-                        <h3 className={css.carBrand}>{car.brand} </h3>
+                        <h3>{car.brand} </h3>
                         <h3 className={css.carModel}>{car.model}, </h3>
-                        <span className={css.carYear}>{car.year}</span>
+                        <span>{car.year}</span>
                     </div>
                     <span className={css.carPrice}>${car.rentalPrice}</span>
                 </div>
                 <div className={css.textCover}>
-                    <span className={css.carDetails}>{cityAndCountry}</span>
+                    <span className={css.carDetails}>{city}</span>
+                    <span className={css.carDetails}>{country}</span>
                     <span className={css.carDetails}>{car.rentalCompany}</span>
                 </div>
-                <div className={css.textCover}>
+                <div>
                     <span className={css.carDetails}>{car.type}</span>
-                    <span className={css.carDetails}>{car.mileage} km</span>
+                    <span className={clsx(css.carDetails, css.noDivider)}>{formatNumber(car.mileage)} km</span>
                 </div>
             </div>
 

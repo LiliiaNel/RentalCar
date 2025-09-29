@@ -33,6 +33,14 @@
     
 }
 
+.favButton svg {
+  transition: transform 0.2s ease;
+}
+
+.favButton:hover svg {
+  transform: scale(1.2);
+}
+
 .description {
   display: flex;
   flex-direction: column;
@@ -41,8 +49,6 @@
   margin-bottom: 28px;
 }
 
-
-
 .titleWrapper {
   display: flex;
 align-items: flex-start;
@@ -50,26 +56,27 @@ justify-content: flex-start;
 flex-direction: row;
 margin-bottom: 8px;
 }
+
 .carInfo {
-font-weight: 500;
-font-size: 16px;
-line-height: 1.25;
-margin-right: auto;
-}
-
-.carBrand {
-font-weight: 500;
-font-size: 16px;
-line-height: 1.25;
-color: #101828;
-}
-
-.carModel {
-color: #3470ff;
-}
-
-.carYear {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  margin-right: auto;
   color: #101828;
+}
+
+.carInfo h3, .carInfo span {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  font-weight: inherit; 
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.carInfo .carModel {
+  color: #3470ff;    
 }
 
 .carPrice {
@@ -81,7 +88,7 @@ color: #101828;
 
 .textCover {
   display: flex;
-  gap: 3px;
+  align-items: center;
 }
 
 .carDetails {
@@ -91,6 +98,20 @@ line-height: 1.33333;
 color: #8d929a;
 }
 
+.carDetails::after {
+  content: "";
+  display: inline-block; 
+  margin: 0 6px;
+  width: 1px;
+  height: 16px;
+  background: #dadde1;
+  vertical-align: middle; 
+}
+
+
+.noDivider::after {
+  content: none;
+}
 
 .readMoreBtn {
 border-radius: 12px;
