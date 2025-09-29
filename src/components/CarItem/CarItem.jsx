@@ -58,11 +58,11 @@ export default function CarItem({ car }) {
                     <span className={css.carPrice}>${car.rentalPrice}</span>
                 </div>
                 <div className={css.textCover}>
-                    <span className={css.carDetails}>{cityAndCountry} |</span>
-                    <span className={css.carDetails}>{car.rentalCompany} |</span>
+                    <span className={css.carDetails}>{cityAndCountry}</span>
+                    <span className={css.carDetails}>{car.rentalCompany}</span>
                 </div>
                 <div className={css.textCover}>
-                    <span className={css.carDetails}>{car.type} | </span>
+                    <span className={css.carDetails}>{car.type}</span>
                     <span className={css.carDetails}>{car.mileage} km</span>
                 </div>
             </div>

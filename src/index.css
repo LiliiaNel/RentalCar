@@ -158,7 +158,7 @@ a {
   color: inherit;
 }
 
-button {
+button:not([class]) {
   border: none;
   outline: none;
   font-family: inherit;

@@ -2,8 +2,7 @@ import css from './CarList.module.css';
 import CarItem from '../CarItem/CarItem';
 
 export default function CarList({cars}) {
-
-
+  
   return <div className={css.listWrapper}>
     <ul className={css.list}>
       {cars.map((car) => (
@@ -13,5 +12,4 @@ export default function CarList({cars}) {
       ))}
     </ul>
     </div>
-    
 }
