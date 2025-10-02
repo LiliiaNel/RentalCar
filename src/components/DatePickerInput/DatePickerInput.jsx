@@ -1,28 +1,17 @@
 import { useState, useRef, useEffect } from 'react';
-import { DayPicker } from 'react-day-picker';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { useFormikContext } from 'formik';
-import 'react-day-picker/style.css';
+import { registerLocale } from "react-datepicker";
+import enGB from "date-fns/locale/en-GB";
+registerLocale("en-GB", enGB);
+
 import css from './DatePickerInput.module.css';
 
-export default function DatePicker({ name, placeholder }) {
+export default function DatePickerInput ({ name, placeholder }) {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
   const containerRef = useRef(null);
   const { values, setFieldValue } = useFormikContext();
-
-  const formatDate = (date) => {
-    if (!date) return "";
-    const d = String(date.getDate()).padStart(2, "0");
-    const m = String(date.getMonth() + 1).padStart(2, "0");
-    const y = date.getFullYear();
-    return `${d}.${m}.${y}`;
-  };
-
-  const handleSelect = (date) => {
-    setSelected(date);
-    setFieldValue(name, formatDate(date));
-    setOpen(false);
-  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -36,41 +25,49 @@ export default function DatePicker({ name, placeholder }) {
     };
   }, []);
 
+
+    const formatDateRange = (range) => {
+    if (!range || !range[0]) return "";
+    const d = (date) => {
+      if (!date) return "";
+      const day = String(date.getDate()).padStart(2, "0");
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const year = date.getFullYear();
+      return `${day}.${month}.${year}`;
+    };
+    return range[1] ? `${d(range[0])} - ${d(range[1])}` : d(range[0]);
+  };
+
+
   return (
     <div ref={containerRef} style={{ position: "relative" }}>
       <input
         type="text"
-        value={values[name]}
+        value={formatDateRange(values[name])}
         placeholder={placeholder}
         readOnly
         onClick={() => setOpen(!open)}
         className={css.inputField} 
       />
       {open && (
-        <div style={{ position: "absolute", top: "100%", left: 0, zIndex: 50 }}>
-          <DayPicker
-            mode="single"
-            selected={selected}
-            onSelect={handleSelect}
-            navLayout="around"
-            showOutsideDays
-            classNames={{
-              root: css.calendar,
-              nav: css.nav,
-              caption: css.caption,
-              caption_label: css.captionLabel,
-              nav_button: css.navButton,
-              chevron: css.myChevron,
-              button_previous: css.prevBtn, 
-              button_next: css.nextBtn,
-              weekdays: css.weekdaysRow,
-              weekday: css.weekday,
-              day: css.dayCell,
-              day_button: css.dayButton,
-              selected: css.selected,
-              today: css.today,
-              outside: css.outside,
-            }}
+        <div className={css.container} style={{ position: "absolute", top: "100%", left: 0, zIndex: 9999, overflow: "visible" }} children>
+           <DatePicker
+              selectsRange
+              locale="en-GB"
+              startDate={values[name]?.[0] || null}
+              endDate={values[name]?.[1] || null}
+              minDate={new Date()} 
+              onChange={(dates) => {
+                const [start, end] = dates;
+                setFieldValue(name, [start, end]);
+                if (start && end) setOpen(false);
+              }}
+              inline
+              shouldCloseOnSelect={true}
+              dateFormat="dd/MM/yyyy"
+              showPopperArrow
+              fixedHeight={false} 
+              calendarClassName={css.calendar}
           />
         </div>
       )}
