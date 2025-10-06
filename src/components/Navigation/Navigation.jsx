@@ -6,13 +6,13 @@ export default function Navigation() {
   const buildLinkClass = ({ isActive }) => clsx(css.navLink, { [css.activeLink]: isActive });
     
   return <div className={css.wrapper}>
-                <nav className={css.nav}>
-                    <NavLink to="/" className={buildLinkClass}>
-                    Home
-                    </NavLink>
-                    <NavLink to="/catalog" className={buildLinkClass}>
-                    Catalog
-                    </NavLink>
-                </nav>
+            <nav className={css.nav}>
+                <NavLink to="/" className={buildLinkClass}>
+                Home
+                </NavLink>
+                <NavLink to="/catalog" className={buildLinkClass}>
+                Catalog
+                </NavLink>
+            </nav>
         </div>
 }

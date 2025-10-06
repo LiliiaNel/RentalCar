@@ -10,7 +10,7 @@
   text-align: left;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   column-gap: 32px;
   row-gap: 48px;
   padding-left: 0;

@@ -1,18 +1,18 @@
 .wrapper {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 
 .label {
-font-weight: 400;
-font-size: 12px;
-line-height: 1.33333;
-color: #8d929a;
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 8px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: #8d929a;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .inputWrapper {
@@ -21,15 +21,15 @@ gap: 8px;
 }
 
 .input {
-width: 160px;
-height: 44px;
-background: #f7f7f7;
-outline: none;
-border: none;
-font-weight: 500;
-font-size: 16px;
-line-height: 1.25;
-color: #101828;
+  width: 160px;
+  height: 44px;
+  background: #f7f7f7;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
 }
 
 .inputFrom {
@@ -39,8 +39,8 @@ color: #101828;
 }
 
 .inputTo {
-    border-radius: 0 12px 12px 0;
-    padding-left: 44px;
+  border-radius: 0 12px 12px 0;
+  padding-left: 44px;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -59,9 +59,9 @@ input[type="number"] {
   top: 50%;
   transform: translateY(-50%);
   font-weight: 500;
-    font-size: 16px;
-    line-height: 1.25;
-    color: #101828;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
   pointer-events: none;
 }
 

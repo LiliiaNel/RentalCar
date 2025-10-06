@@ -1,33 +1,33 @@
 .filtersPanel {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    flex-direction: row;
-    gap: 16px;
-    margin-bottom: 56px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 56px;
 }
 
 .filtersWrapper {
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: row;
-gap: 16px;
-width: 752px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 16px;
+  width: 752px;
 }
 
 
 .searchBtn {
-border-radius: 12px;
-padding: 12px 51px;
-width: 156px;
-height: 44px;
-background: #3470ff;
+  border-radius: 12px;
+  padding: 12px 51px;
+  width: 156px;
+  height: 44px;
+  background: #3470ff;
 
-font-weight: 600;
-font-size: 16px;
-line-height: 1.25;
-color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #fff;
 }
 
 .searchBtn:hover {

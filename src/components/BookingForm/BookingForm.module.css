@@ -1,51 +1,51 @@
 
 .bookingForm {
-border: 1px solid #dadde1;
-border-radius: 10px;
-padding: 32px;
-width: 640px;
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+  padding: 32px;
+  width: 640px;
 }
 
 .bookingForm h3 {
-font-weight: 600;
-font-size: 20px;
-line-height: 1.2;
-color: #101828;
-margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  margin-bottom: 8px;
 }
 
 .bookingForm p {
-font-weight: 500;
-font-size: 16px;
-line-height: 1.25;
-color: #8d929a;
-margin-bottom: 24px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+  margin-bottom: 24px;
 }
 
 .inputsWrapper {
-display: flex;
-align-items: flex-start;
-justify-content: flex-start;
-flex-direction: column;
-gap: 16px;
-margin-bottom: 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
 
 .bookingForm input,
 .bookingForm textarea {
-border-radius: 12px;
-padding: 12px 20px;
-width: 576px;
-height: 48px;
-outline: none;
-border: none;
-background: #f7f7f7;
+  border-radius: 12px;
+  padding: 12px 20px;
+  width: 576px;
+  height: 48px;
+  outline: none;
+  border: none;
+  background: #f7f7f7;
 
-font-weight: 500;
-font-size: 16px;
-line-height: 1.25;
-color: #101828;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
 }
 
 

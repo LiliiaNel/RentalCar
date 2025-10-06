@@ -19,32 +19,31 @@
 }
 
 .text {
-font-weight: 700;
-font-size: 60px;
-line-height: 1.2;
-margin-bottom: 16px;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1.2;
+  margin-bottom: 16px;
 }
 
 .textSmall {
-font-weight: 600;
-font-size: 24px;
-line-height: 1.33333;
-margin-bottom: 40px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  margin-bottom: 40px;
 }
 
 
 .catalogBtn {
-border-radius: 12px;
-padding: 12px 88px;
-width: 276px;
-height: 44px;
-background: #3470ff;
+  border-radius: 12px;
+  padding: 12px 88px;
+  width: 276px;
+  height: 44px;
+  background: #3470ff;
 
-font-weight: 500;
-font-size: 16px;
-line-height: 1.25;
-color: #fff;
-
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #fff;
 }
 
 .catalogBtn:hover {
