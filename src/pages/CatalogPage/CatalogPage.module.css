@@ -1,6 +1,8 @@
 .container {
   min-height: 80vh;
   padding: 84px 120px;
+  max-width: var(--max-width-desktop);
+  margin: 0 auto;
 }
 
 .noResults {

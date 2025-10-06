@@ -6,6 +6,8 @@
   padding: 60px 20px;
   min-height: 70vh;
   text-align: center;
+  max-width: var(--max-width-desktop);
+  margin: 0 auto;
 }
 
 .title {

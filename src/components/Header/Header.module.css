@@ -1,13 +1,17 @@
 .header {
-    width: 100%;
-    border-bottom: 1px solid #f2f4f7;
-    padding: 24px 120px;
-    height: 68px;
-    background: #f2f4f7;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid #f2f4f7;
+  background: #f2f4f7;
+}
 
+.headerContainer {
+  max-width: var(--max-width-desktop);
+  margin: 0 auto;
+  padding: 24px 120px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 
