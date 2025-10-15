@@ -4,6 +4,15 @@
     width: 204px; 
     text-align: left;
  }
+
+ 
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
+.wrapper { 
+    width: 270px; 
+}
+}
+
+
 .label { 
     font-weight: 400; 
     font-size: 12px; 
@@ -23,6 +32,12 @@
   box-sizing: border-box;
 }
 
+
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+.menuField { 
+    width: 270px; 
+}
+}
 
 .selectedText {
   color: #111827;
@@ -153,6 +168,8 @@
 .chevronButton:hover,
 .chevronButton:active {
     outline: none;
+    background-color: #dadde1;
+    border-radius: 50%;
 }
 
 .option.selected {

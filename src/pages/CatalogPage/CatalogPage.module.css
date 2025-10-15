@@ -1,9 +1,11 @@
 .container {
   min-height: 80vh;
-  padding: 84px 120px;
-  max-width: var(--max-width-desktop);
   margin: 0 auto;
+  padding-inline: clamp(20px, 5vw, 120px);
+  padding-block: clamp(40px, 8vh, 84px);
+  max-width: clamp(320px, 90vw, var(--max-width-desktop));
 }
+
 
 .noResults {
   margin: 0 auto;

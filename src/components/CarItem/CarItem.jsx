@@ -65,7 +65,7 @@ export default function CarItem({ car }) {
                     <span className={css.carDetails}>{country}</span>
                     <span className={css.carDetails}>{car.rentalCompany}</span>
                 </div>
-                <div>
+                <div className={css.carTypeMileageCover}>
                     <span className={css.carDetails}>{car.type}</span>
                     <span className={clsx(css.carDetails, css.noDivider)}>{formatNumber(car.mileage)} km</span>
                 </div>

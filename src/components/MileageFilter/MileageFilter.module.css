@@ -21,7 +21,7 @@
 }
 
 .input {
-  width: 160px;
+  width: 138px;
   height: 44px;
   background: #f7f7f7;
   outline: none;
@@ -30,6 +30,18 @@
   font-size: 16px;
   line-height: 1.25;
   color: #101828;
+}
+
+@media only screen and (min-width: 768px) {
+  .input {
+    width: 135px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .input {
+    width: 160px;
+  }
 }
 
 .inputFrom {

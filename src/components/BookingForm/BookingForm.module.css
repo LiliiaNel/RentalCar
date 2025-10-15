@@ -1,86 +1,232 @@
-
 .bookingForm {
+  box-sizing: border-box;
   border: 1px solid #dadde1;
-  border-radius: 10px;
-  padding: 32px;
-  width: 640px;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  background: #fff;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .bookingForm {
+    border-radius: 10px;
+    padding: 32px;
+    width: clamp(320px, 50vw, 640px);
+  }
+}
+
+
+@media (min-width: 1440px) {
+  .bookingForm {
+    width: clamp(640px, 45vw, 720px);
+    max-width: 640px;
+  }
 }
 
 .bookingForm h3 {
   font-weight: 600;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.2;
   color: #101828;
-  margin-bottom: 8px;
+  margin: 0 0 8px 0;
+  text-align: center;
 }
+
+@media only screen and (min-width: 768px) {
+  .bookingForm h3 {
+    font-size: 20px;
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .bookingForm h3 {
+    font-size: 20px;
+  }
+}
+
 
 .bookingForm p {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25;
   color: #8d929a;
-  margin-bottom: 24px;
+  margin: 0 0 20px 0;
+  text-align: center;
 }
+
+@media only screen and (min-width: 768px) {
+  .bookingForm p {
+    font-size: 15px;
+    margin-bottom: 24px;
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .bookingForm p {
+    font-size: 16px;
+  }
+}
+
 
 .inputsWrapper {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 14px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
+@media only screen and (min-width: 768px) {
+  .inputsWrapper {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .inputsWrapper {
+    align-items: flex-start;
+  justify-content: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .inputGroup {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .inputGroup {
+    display: block;
+    width: unset;
+  }
+}
 
 .bookingForm input,
 .bookingForm textarea {
-  border-radius: 12px;
-  padding: 12px 20px;
-  width: 576px;
-  height: 48px;
-  outline: none;
+  box-sizing: border-box;
   border: none;
+  outline: none;
   background: #f7f7f7;
-
+  border-radius: 12px;
+  padding: 10px 16px;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25;
   color: #101828;
+  width: 100%;
 }
 
+@media only screen and (min-width: 768px) {
+  .bookingForm input,
+  .bookingForm textarea {
+    font-size: 16px;
+    padding: 12px 20px;
+    width: 100%;
+    height: 48px;
+  }
+}
 
-.bookingForm input::placeholder,
-.bookingForm textarea::placeholder {
-font-weight: 500;
-font-size: 16px;
-line-height: 1.25;
-color: #8d929a;
+@media only screen and (min-width: 1440px) {
+  .bookingForm input,
+  .bookingForm textarea {
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 12px 20px;
+    width: 576px;
+    height: 48px;
+  }
 }
 
 .bookingForm textarea {
   resize: none;
-  height: 88px;
-  padding: 12px 20px 56px;
+  height: 72px;
+  padding-bottom: 12px;
+}
+
+@media only screen and (min-width: 768px) {
+  .bookingForm textarea {
+    height: 88px;
+    padding-bottom: 20px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .bookingForm textarea {
+    height: 88px;
+    padding-bottom: 56px;
+  }
+}
+
+.bookingForm input::placeholder,
+.bookingForm textarea::placeholder {
+  color: #8d929a;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .submitButton {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: 44px;
+  padding: 12px 0;
+  border-radius: 12px;
   background: #3470ff;
   color: #fff;
-  border-radius: 12px;
-  padding: 12px 51px;
-  width: 156px;
-  height: 44px;
-  transition: background-color 0.2s ease;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.25;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
   margin: 0 auto;
 }
 
-.submitButton:hover {
-  background: #3470ff;;
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .submitButton {
+    width: 140px;
+    padding: 10px 40px;
+  }
 }
 
+/* desktop */
+@media only screen and (min-width: 1440px) {
+  .submitButton {
+    width: 156px;
+    padding: 12px 51px;
+  }
+}
+
+.submitButton:hover {
+  background: #0B44CD;
+}
+
+/* ---- error message ---- */
+/* base (mobile) */
 .error {
-  color: #8d929a;;   
-  font-size: 14px;    
-  margin-top: 4px; 
+  color: #8d929a;
+  font-size: 13px;
+  margin-top: 6px;
   font-weight: 500;
+}
+
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .error {
+    font-size: 14px;
+  }
 }

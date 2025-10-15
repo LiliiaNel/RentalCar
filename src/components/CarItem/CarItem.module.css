@@ -113,6 +113,10 @@
   vertical-align: middle; 
 }
 
+.carTypeMileageCover {
+  align-self: flex-start;
+}
+
 
 .noDivider::after {
   content: none;

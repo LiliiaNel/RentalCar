@@ -22,8 +22,10 @@ export default function FiltersPanel() {
   return (
     <div className={css.filtersPanel}>
       <div className={css.filtersWrapper}>
-        <BrandDropdown value={brand} onChange={handleBrandChange} />
-        <PriceDropdown value={rentalPrice} onChange={handleRentalPriceChange} />
+        <div className={css.dropdownBox}>
+          <BrandDropdown value={brand} onChange={handleBrandChange} />
+          <PriceDropdown value={rentalPrice} onChange={handleRentalPriceChange} />
+        </div>
         <MileageFilter
           valueFrom={minMileage}
           valueTo={maxMileage}
